@@ -21,7 +21,7 @@ body {
     height: 95%;
     display: grid;
     grid-template-rows: 4% 5% 1fr; /* Three rows: one for each upper block and one for the rest */
-    grid-template-columns: 10% 70% 20%; /* Three columns: left, main and right */
+    grid-template-columns: 15% 70% 15%; /* Three columns: left, main and right */
 }
 
 .upper-block-first {
@@ -35,7 +35,7 @@ body {
 }
 
 .left-side-block {
-    background: #dfbd33;
+    background: #ffffff;
     grid-row: 3; /* Specify row */
     grid-column: 1; /* Specify column */
 }
@@ -48,9 +48,10 @@ body {
 }
 
 .right-side-block {
-    background: greenyellow;
+    background: #ffffff;
     grid-row: 3; /* Specify row */
     grid-column: 3; /* Specify column */
+    border-left: 1px solid #b4b4b4; /* Add border */
 }
 
 .ruler-container {
@@ -68,16 +69,43 @@ nav ul {
 }
 
 nav ul li {
-    margin: 0; /* Убраны маргины */
+    margin: 0; /* Убраны отступы */
     padding: 10px 0; /* Добавлен padding для отступов между элементами списка */
     text-align: center; /* Выравнивание текста по центру */
 }
 
+.navigation {
+    font-family: "Open Sans";
+    font-size: 14px;
+    font-weight: bold;
+    border: 1px solid transparent; /* Add transparent border */
+}
+
+.navigation:hover {
+    border: 1px solid #999999;
+}
+
+.navigation:hover a {
+    color: #888; /* Moved hover effect to li from a */
+}
+
+nav ul li a {
+    color: #000; /* Задаем цвет текста */
+    text-decoration: none; /* Убираем подчеркивание */
+}
+
+nav ul li a::before {
+    content: url('image.jpg'); /* Замените 'image.jpg' на путь к вашему изображению */
+    display: inline-block;
+    margin-right: 10px; /* Отступ справа от изображения до текста */
+}
 .main-content {
     position: relative;
+    font-family: "Open Sans";
+    text-align: center;
     width: calc(100% - 20px); /* Reduce the width by the width of the vertical ruler */
     height: 100%;
-    padding-left: 40px;  /* добавим отступ слева */
+    padding-left: 40px; /* добавим отступ слева */
     padding-top: 20px;
 }
 
@@ -86,7 +114,7 @@ nav ul li {
     top: 0;
     left: 0;
     width: 100%; /* Updated width */
-    background: white;
+    background: rgba(255, 255, 255, 0.5);
     border-radius: 1px;
     height: 20px;
     display: flex;
@@ -94,19 +122,41 @@ nav ul li {
     padding: 0 10px;
     box-sizing: border-box;
     font-size: 12px;
-    border: 1px solid #787878;
+    border-left: 1px solid #b4b4b4;
+    border-bottom: 1px solid #b4b4b4;
+    border-top: 1px solid #b4b4b4;
     z-index: 10; /* If needed to put it above other content */
 }
 
 .horizontal-ruler::before {
     content: "";
     position: absolute;
-    left: 15%;  /* начинаем от 15% слева */
+    left: 15%; /* начинаем от 15% слева */
     right: 15%; /* оставляем 15% справа */
     top: 0;
     bottom: 0;
-    background: #c1faf3;
-    border-radius: 5px;  /* закругляем углы */
+    background: #e5f4ff;
+    border-radius: 5px; /* закругляем углы */
+}
+
+/* Маркеры для горизонтальной линейки */
+.horizontal-ruler .mark {
+    position: relative;
+    width: 1px; /* уменьшаем ширину маркера */
+    background: #646464;
+    height: 20%; /* уменьшаем высоту маркера */
+    align-self: flex-end; /* размещаем маркер в нижней части линейки */
+}
+
+.horizontal-ruler .mark:after {
+    content: attr(data-num);
+    position: absolute;
+    bottom: 100%; /* размещаем текст под маркером */
+    white-space: nowrap;
+    transform: translateX(-50%); /* центрируем текст по горизонтали */
+    font-family: "Open Sans";
+    font-size: 10px; /* уменьшаем размер шрифта */
+    color: #c7c1c1;
 }
 
 .vertical-ruler {
@@ -125,18 +175,18 @@ nav ul li {
     font-size: 10px;
     margin-right: 0;
     flex-shrink: 0;
-    border: 1px solid #646464;
+    border: 1px solid #b4b4b4;
 }
 
 .vertical-ruler::before {
     content: "";
     position: absolute;
-    top: 30%;  /* начинаем от 15% сверху */
+    top: 30%; /* начинаем от 15% сверху */
     bottom: 5%; /* оставляем 15% снизу */
     left: 0;
     right: 0;
-    background: #c1faf3;
-    border-radius: 5px;  /* закругляем углы */
+    background: #e5f4ff;
+    border-radius: 5px; /* закругляем углы */
 }
 
 .vertical-ruler .mark {
@@ -157,25 +207,7 @@ nav ul li {
     transform: rotate(180deg) translateX(20%);
     transform-origin: right center;
     font-size: 10px;
+    font-family: "Open Sans";
     margin-right: 5px;
-    color: #c7c1c1;
-}
-
-/* Маркеры для горизонтальной линейки */
-.horizontal-ruler .mark {
-    position: relative;
-    width: 1px;  /* уменьшаем ширину маркера */
-    background: #646464;
-    height: 20%; /* уменьшаем высоту маркера */
-    align-self: flex-end;  /* размещаем маркер в нижней части линейки */
-}
-
-.horizontal-ruler .mark:after {
-    content: attr(data-num);
-    position: absolute;
-    bottom: 100%;  /* размещаем текст под маркером */
-    white-space: nowrap;
-    transform: translateX(-50%);  /* центрируем текст по горизонтали */
-    font-size: 10px;  /* уменьшаем размер шрифта */
     color: #c7c1c1;
 }
