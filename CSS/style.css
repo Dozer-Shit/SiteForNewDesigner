@@ -12,10 +12,10 @@ body {
 
 .content {
     background-color: #fff;
-    padding: 0px;
+    padding: 0;
     border-radius: 1px;
     border: 1px solid black;
-    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     max-width: 1400px;
     width: 100%;
     height: 95%;
@@ -25,8 +25,42 @@ body {
 }
 
 .upper-block-first {
-    grid-column: 1 / span 3; /* Let this block occupy all columns */
-    background: #1e1e1e;
+    display: grid;
+    grid-template-columns: 3% 8% 8% 8% 8% 8% 8% 8% 8% 8% 1fr; /* 9 equal columns */
+    grid-column: span 3; /* This makes it span all 3 columns */
+}
+
+.sub-block {
+    background-color: #1e1e1e; /* just for visual representation */
+    border-left: 1px solid #282828; /* just for visual representation */
+    border-right: 1px solid #282828; /* just for visual representation */
+    font-family: "Open Sans", serif;
+    font-size: 12px;
+    display: flex; /* Добавить */
+    justify-content: center; /* Добавить */
+    align-items: center;
+    color: #646464;
+}
+.sub-block:hover {
+    color: white;
+    background: #323232;
+}
+
+.active {
+    color: white;
+    background: #323232;
+}
+
+.sub-block-logo {
+    background-color: #1e1e1e;
+    /* другие стили, специфичные для этого блока */
+}
+
+.logo-image {
+    display: block;
+    width: 85%;
+    height: 90%;
+    object-fit: contain;
 }
 
 .upper-block-second {
@@ -66,23 +100,25 @@ nav ul {
     display: block; /* Изменено с flex на block */
     padding: 0;
     list-style-type: none;
+    margin-top: 0;
 }
 
 nav ul li {
     margin: 0; /* Убраны отступы */
     padding: 10px 0; /* Добавлен padding для отступов между элементами списка */
-    text-align: center; /* Выравнивание текста по центру */
+    text-align: left; /* Выравнивание текста по центру */
 }
 
 .navigation {
-    font-family: "Open Sans";
+    font-family: "Open Sans", serif;
     font-size: 14px;
     font-weight: bold;
     border: 1px solid transparent; /* Add transparent border */
 }
 
 .navigation:hover {
-    border: 1px solid #999999;
+    border-top: 1px solid #999999;
+    border-bottom: 1px solid #999999;
 }
 
 .navigation:hover a {
@@ -95,13 +131,21 @@ nav ul li a {
 }
 
 nav ul li a::before {
-    content: url('image.jpg'); /* Замените 'image.jpg' на путь к вашему изображению */
+    content: ''; /* Задаем пустое содержимое */
     display: inline-block;
+    width: 15px; /* Задаем ширину */
+    height: 15px; /* Задаем высоту */
+    background-image: url('../IMG/hashtag_icon_213718.svg'); /* Замените 'image.jpg' на путь к вашему изображению */
+    background-repeat: no-repeat; /* Изображение не будет повторяться */
+    background-size: contain; /* Изображение будет масштабироваться, чтобы поместиться в элемент */
     margin-right: 10px; /* Отступ справа от изображения до текста */
+    margin-left: 10px;
+    vertical-align: middle; /* Добавлено выравнивание по вертикали */
 }
+
 .main-content {
     position: relative;
-    font-family: "Open Sans";
+    font-family: "Open Sans", serif;
     text-align: center;
     width: calc(100% - 20px); /* Reduce the width by the width of the vertical ruler */
     height: 100%;
@@ -154,7 +198,7 @@ nav ul li a::before {
     bottom: 100%; /* размещаем текст под маркером */
     white-space: nowrap;
     transform: translateX(-50%); /* центрируем текст по горизонтали */
-    font-family: "Open Sans";
+    font-family: "Open Sans", serif;
     font-size: 10px; /* уменьшаем размер шрифта */
     color: #c7c1c1;
 }
@@ -207,7 +251,7 @@ nav ul li a::before {
     transform: rotate(180deg) translateX(20%);
     transform-origin: right center;
     font-size: 10px;
-    font-family: "Open Sans";
+    font-family: "Open Sans", serif;
     margin-right: 5px;
     color: #c7c1c1;
 }
