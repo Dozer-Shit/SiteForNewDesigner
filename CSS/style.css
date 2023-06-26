@@ -98,14 +98,23 @@ body {
 
 nav ul {
     display: block; /* Изменено с flex на block */
-    padding: 0;
+    padding-left: 0;
     list-style-type: none;
     margin-top: 0;
 }
 
+nav ul a.navigation {
+    display: block; /* Добавлено для расширения области клика */
+    margin: 0; /* Убраны отступы */
+    padding: 10px 0 10px 15px; /* Добавлен padding для отступов между элементами списка */
+    text-align: left; /* Выравнивание текста по центру */
+    color: #000; /* Задаем цвет текста */
+    text-decoration: none; /* Убираем подчеркивание */
+}
+
 nav ul li {
     margin: 0; /* Убраны отступы */
-    padding: 10px 0; /* Добавлен padding для отступов между элементами списка */
+    padding: 0 0; /* Добавлен padding для отступов между элементами списка */
     text-align: left; /* Выравнивание текста по центру */
 }
 
@@ -119,6 +128,7 @@ nav ul li {
 .navigation:hover {
     border-top: 1px solid #999999;
     border-bottom: 1px solid #999999;
+    color: #888; /* Moved hover effect to li from a */
 }
 
 .navigation:hover a {
