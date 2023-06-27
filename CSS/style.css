@@ -10,6 +10,8 @@ body {
     align-items: center;
 }
 
+/* content */
+
 .content {
     background-color: #fff;
     padding: 0;
@@ -23,6 +25,8 @@ body {
     grid-template-rows: 4% 5% 1fr; /* Three rows: one for each upper block and one for the rest */
     grid-template-columns: 15% 70% 15%; /* Three columns: left, main and right */
 }
+
+/* upper-block-first */
 
 .upper-block-first {
     display: grid;
@@ -41,19 +45,51 @@ body {
     align-items: center;
     color: #646464;
 }
-.sub-block:hover {
-    color: white;
-    background: #323232;
-}
-
-.active {
-    color: white;
-    background: #323232;
-}
 
 .sub-block-logo {
-    background-color: #1e1e1e;
-    /* другие стили, специфичные для этого блока */
+    background-color: #1e1e1e; /* just for visual representation */
+    display: flex; /* Добавить */
+    align-items: center;
+    justify-content: center;
+    padding-left: 4px;
+}
+
+.sub-block a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    color: inherit; /* Важно: это заставит ссылку использовать цвет текста родительского элемента */
+    text-decoration: none; /* Опционально: это уберет подчеркивание у ссылки */
+}
+
+.sub-block a::before {
+    content: ''; /* Задаем пустое содержимое */
+    display: inline-block;
+    width: 15px; /* Задаем ширину */
+    height: 15px; /* Задаем высоту */
+    background-image: url('../IMG/brush_blue.svg'); /* Замените 'image.jpg' на путь к вашему изображению */
+    background-repeat: no-repeat; /* Изображение не будет повторяться */
+    background-size: contain; /* Изображение будет масштабироваться, чтобы поместиться в элемент */
+    margin-right: 5px; /* Отступ справа от изображения до текста */
+    margin-left: 10px;
+    vertical-align: middle; /* Добавлено выравнивание по вертикали */
+    filter: brightness(0.5); /* Затемнение, 0.5 - это половина яркости */
+}
+
+.sub-block-logo:hover, .sub-block:hover, .sub-block.active-sub-block, .sub-block-logo.active-sub-block {
+    color: white;
+    background: #323232;
+}
+
+.sub-block:hover a::before, .sub-block.active-sub-block a::before {
+    filter: brightness(1); /* Возвращает к исходной яркости */
+}
+
+.active-sub-block {
+    color: white;
+    background: #323232;
 }
 
 .logo-image {
@@ -63,10 +99,70 @@ body {
     object-fit: contain;
 }
 
+/* upper-block-second */
+
 .upper-block-second {
-    grid-column: 1 / span 3; /* Let this block occupy all columns */
-    background: #323232;
+    display: grid;
+    grid-template-columns: 4% 3% 3% 3% 1fr 4% 6% 5%; /* 8 equal columns */
+    grid-column: span 3; /* This makes it span all 3 columns */
 }
+
+.sub-sec-block {
+    background-color: #323232; /* just for visual representation */
+    border-left: 1px solid #282828; /* just for visual representation */
+    border-right: 1px solid #282828; /* just for visual representation */
+    font-family: "Open Sans", serif;
+    font-size: 12px;
+    display: flex; /* Добавить */
+    justify-content: center; /* Добавить */
+    align-items: center;
+    color: #646464;
+}
+
+.sub-sec-block a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    color: inherit; /* Важно: это заставит ссылку использовать цвет текста родительского элемента */
+    text-decoration: none; /* Опционально: это уберет подчеркивание у ссылки */
+}
+
+/* select block */
+
+/* Стиль текста и фона выпадающего меню */
+.select2-container--default .select2-results__option {
+    background-color: #323232;
+    border: none;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.select2-container--default .select2-results .select2-results__option--highlighted {
+    background-color: rgba(138, 202, 255, 0.5); !important;
+    color: #ffffff !important;
+}
+
+/* Стиль текста и фона выбранного элемента */
+.select2-container--default .select2-selection--single {
+    background-color: #1e1e1e;
+    border: none;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    color: rgba(255, 255, 255, 0.6); /* Увеличьте значение прозрачности на 1, чтобы сделать текст ярче */
+}
+
+.select2-dropdown {
+    border: none;
+}
+
+.select2-container--default .select2-results__option[aria-selected=true] {
+    background-color: #1e1e1e !important;
+    color: white !important;
+}
+
+/* left-side-block */
 
 .left-side-block {
     background: #ffffff;
@@ -74,27 +170,7 @@ body {
     grid-column: 1; /* Specify column */
 }
 
-.main-content-block {
-    position: relative; /* Add this line */
-    background: rgb(250, 250, 250);
-    grid-row: 3; /* Specify row */
-    grid-column: 2; /* Specify column */
-}
-
-.right-side-block {
-    background: #ffffff;
-    grid-row: 3; /* Specify row */
-    grid-column: 3; /* Specify column */
-    border-left: 1px solid #b4b4b4; /* Add border */
-}
-
-.ruler-container {
-    position: absolute; /* Changed from flex to absolute */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
+/* Navigation */
 
 nav ul {
     display: block; /* Изменено с flex на block */
@@ -112,12 +188,6 @@ nav ul a.navigation {
     text-decoration: none; /* Убираем подчеркивание */
 }
 
-nav ul li {
-    margin: 0; /* Убраны отступы */
-    padding: 0 0; /* Добавлен padding для отступов между элементами списка */
-    text-align: left; /* Выравнивание текста по центру */
-}
-
 .navigation {
     font-family: "Open Sans", serif;
     font-size: 14px;
@@ -131,26 +201,41 @@ nav ul li {
     color: #888; /* Moved hover effect to li from a */
 }
 
-.navigation:hover a {
-    color: #888; /* Moved hover effect to li from a */
+.nav-icon {
+    height: 20px; /* Укажите желаемую высоту */
+    width: 20px; /* Укажите желаемую ширину */
+    vertical-align: middle; /* Выравнивание по центру относительно текста */
+    margin-right: 5px; /* Отступ справа для отделения изображения от текста */
 }
 
-nav ul li a {
-    color: #000; /* Задаем цвет текста */
-    text-decoration: none; /* Убираем подчеркивание */
+.nav-icon-hover {
+    display: none;
+    height: 20px;
+    width: 20px;
+    vertical-align: middle;
+    margin-right: 5px;
 }
 
-nav ul li a::before {
-    content: ''; /* Задаем пустое содержимое */
-    display: inline-block;
-    width: 15px; /* Задаем ширину */
-    height: 15px; /* Задаем высоту */
-    background-image: url('../IMG/hashtag_icon_213718.svg'); /* Замените 'image.jpg' на путь к вашему изображению */
-    background-repeat: no-repeat; /* Изображение не будет повторяться */
-    background-size: contain; /* Изображение будет масштабироваться, чтобы поместиться в элемент */
-    margin-right: 10px; /* Отступ справа от изображения до текста */
-    margin-left: 10px;
-    vertical-align: middle; /* Добавлено выравнивание по вертикали */
+.navigation:hover .nav-icon, .navigation.active-navigation .nav-icon {
+    display: none;
+}
+
+.navigation:hover .nav-icon-hover, .navigation.active-navigation .nav-icon-hover {
+    display: inline;
+}
+
+.active-navigation {
+    color: white;
+    background: rgba(138, 202, 255, 0.5);
+}
+
+/* main-content-block */
+
+.main-content-block {
+    position: relative; /* Add this line */
+    background: rgb(250, 250, 250);
+    grid-row: 3; /* Specify row */
+    grid-column: 2; /* Specify column */
 }
 
 .main-content {
@@ -161,6 +246,25 @@ nav ul li a::before {
     height: 100%;
     padding-left: 40px; /* добавим отступ слева */
     padding-top: 20px;
+}
+
+/* right-side-block */
+
+.right-side-block {
+    background: #ffffff;
+    grid-row: 3; /* Specify row */
+    grid-column: 3; /* Specify column */
+    border-left: 1px solid #b4b4b4; /* Add border */
+}
+
+/* Vertical & Horizontal rulers */
+
+.ruler-container {
+    position: absolute; /* Changed from flex to absolute */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 .horizontal-ruler {
@@ -193,7 +297,6 @@ nav ul li a::before {
     border-radius: 5px; /* закругляем углы */
 }
 
-/* Маркеры для горизонтальной линейки */
 .horizontal-ruler .mark {
     position: relative;
     width: 1px; /* уменьшаем ширину маркера */
@@ -265,3 +368,67 @@ nav ul li a::before {
     margin-right: 5px;
     color: #c7c1c1;
 }
+
+/* Switch button */
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #1e1e1e;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white; /* Цвет ползунка по умолчанию */
+    box-shadow: 0 0 1px #1e1e1e;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #ffffff; /* Цвет фона при переключении */
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #1e1e1e;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+    background-color: #1e1e1e; /* Цвет ползунка при переключении */
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+

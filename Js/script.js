@@ -1,15 +1,34 @@
 document.addEventListener('DOMContentLoaded', (event) => {
     // Получить все блоки
-    let blocks = document.querySelectorAll('.sub-block');
+    let subBlocks = document.querySelectorAll('.sub-block, .sub-block-logo');
+    let navigationBlocks = document.querySelectorAll('.navigation');
 
     // Добавить обработчик событий каждому блоку
-    blocks.forEach(function(block) {
+    subBlocks.forEach(function(block) {
         block.addEventListener('click', function() {
-            // Убрать класс 'active' у всех блоков
-            blocks.forEach(block => block.classList.remove('active'));
+            // Убрать класс 'active-sub-block' у всех блоков
+            subBlocks.forEach(block => block.classList.remove('active-sub-block'));
 
-            // Добавить класс 'active' к кликнутому блоку
-            this.classList.add('active');
+            // Добавить класс 'active-sub-block' к кликнутому блоку
+            this.classList.add('active-sub-block');
         });
+    });
+
+    navigationBlocks.forEach(function(block) {
+        block.addEventListener('click', function() {
+            // Убрать класс 'active-navigation' у всех блоков
+            navigationBlocks.forEach(block => block.classList.remove('active-navigation'));
+
+            // Добавить класс 'active-navigation' к кликнутому блоку
+            this.classList.add('active-navigation');
+        });
+    });
+});
+
+/* select menu */
+
+$(document).ready(function() {
+    $('.js-example-basic-single').select2({
+        minimumResultsForSearch: Infinity // Эта опция скрывает строку поиска
     });
 });
