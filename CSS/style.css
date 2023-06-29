@@ -139,7 +139,8 @@ body {
 }
 
 .select2-container--default .select2-results .select2-results__option--highlighted {
-    background-color: rgba(138, 202, 255, 0.5); !important;
+    background-color: rgba(138, 202, 255, 0.5);
+!important;
     color: #ffffff !important;
 }
 
@@ -233,7 +234,29 @@ nav ul a.navigation {
 
 .main-content-block {
     position: relative; /* Add this line */
-    background: rgb(250, 250, 250);
+    background: linear-gradient(
+        to right,
+        #f3f3f3 0%,
+        #f3f3f3 10%,
+        #ffc8c8 10%,
+        #ffc8c8 20%,
+        #f3f3f3 20%,
+        #f3f3f3 30%,
+        #ffc8c8 30%,
+        #ffc8c8 40%,
+        #f3f3f3 40%,
+        #f3f3f3 50%,
+        #ffc8c8 50%,
+        #ffc8c8 60%,
+        #f3f3f3 60%,
+        #f3f3f3 70%,
+        #ffc8c8 70%,
+        #ffc8c8 80%,
+        #f3f3f3 80%,
+        #f3f3f3 90%,
+        #ffc8c8 90%,
+        #ffc8c8 100%
+    );
     grid-row: 3; /* Specify row */
     grid-column: 2; /* Specify column */
 }
@@ -241,12 +264,43 @@ nav ul a.navigation {
 .main-content {
     position: relative;
     font-family: "Open Sans", serif;
-    text-align: center;
-    width: calc(100% - 20px); /* Reduce the width by the width of the vertical ruler */
+    text-align: left;
+    width: calc(100% - 60px); /* Reduce the width by the width of the vertical ruler */
     height: 100%;
     padding-left: 40px; /* добавим отступ слева */
-    padding-top: 20px;
+    padding-right: 40px; /* добавим отступ справа */
+    padding-top: 40px;
 }
+
+
+.top-block {
+    background: #ffffff;
+    border: 1px solid #c3c3c3;
+    display: flex;
+    align-items: start;
+    justify-content: flex-start;
+    height: 400px;
+    box-sizing: border-box;
+    padding: 25px 40px 30px 25px;
+}
+
+.top-image {
+    margin-right: 60px;
+    border-radius: 10px;
+    box-shadow: 3px 0px 13px 5px rgba(0, 0, 0, 0.3);
+    height: 100%; /* Add this line */
+    object-fit: contain; /* Add this line */
+}
+
+.text-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* выравниваем по верхнему краю */
+    align-items: flex-start; /* выравниваем по левому краю */
+    height: 100%;
+    width: 80%; /* Указываем ширину */
+}
+
 
 /* right-side-block */
 
@@ -333,6 +387,7 @@ nav ul a.navigation {
     margin-right: 0;
     flex-shrink: 0;
     border: 1px solid #b4b4b4;
+    z-index: 5;
 }
 
 .vertical-ruler::before {
