@@ -236,26 +236,26 @@ nav ul a.navigation {
     position: relative; /* Add this line */
     background: linear-gradient(
         to right,
-        #f3f3f3 0%,
+        #fafafa 0%,
         #f3f3f3 10%,
-        #ffc8c8 10%,
-        #ffc8c8 20%,
+        rgba(255, 200, 200, 0.5) 10%,
+        rgba(255, 200, 200, 0.5) 20%,
         #f3f3f3 20%,
         #f3f3f3 30%,
-        #ffc8c8 30%,
-        #ffc8c8 40%,
+        rgba(255, 200, 200, 0.5) 30%,
+        rgba(255, 200, 200, 0.5) 40%,
         #f3f3f3 40%,
         #f3f3f3 50%,
-        #ffc8c8 50%,
-        #ffc8c8 60%,
+        rgba(255, 200, 200, 0.5) 50%,
+        rgba(255, 200, 200, 0.5) 60%,
         #f3f3f3 60%,
         #f3f3f3 70%,
-        #ffc8c8 70%,
-        #ffc8c8 80%,
+        rgba(255, 200, 200, 0.5) 70%,
+        rgba(255, 200, 200, 0.5) 80%,
         #f3f3f3 80%,
         #f3f3f3 90%,
-        #ffc8c8 90%,
-        #ffc8c8 100%
+        rgba(255, 200, 200, 0.5) 90%,
+        rgba(255, 200, 200, 0.5) 100%
     );
     grid-row: 3; /* Specify row */
     grid-column: 2; /* Specify column */
@@ -275,19 +275,19 @@ nav ul a.navigation {
 
 .top-block {
     background: #ffffff;
-    border: 1px solid #c3c3c3;
     display: flex;
     align-items: start;
     justify-content: flex-start;
     height: 400px;
     box-sizing: border-box;
-    padding: 25px 40px 30px 25px;
+    padding: 25px 40px 40px 25px;
 }
 
 .top-image {
     margin-right: 60px;
-    border-radius: 10px;
-    box-shadow: 3px 0px 13px 5px rgba(0, 0, 0, 0.3);
+    margin-left: 10px;
+    border-radius: 5px;
+    /*box-shadow: 3px 0px 13px 5px rgba(0, 0, 0, 0.3);*/
     height: 100%; /* Add this line */
     object-fit: contain; /* Add this line */
 }
