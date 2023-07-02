@@ -1,6 +1,7 @@
 body {
     background-color: #f0f0f0;
-    background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.4) 25%, transparent 25%, transparent 75%, rgba(255, 255, 255, 0.4) 75%, rgba(255, 255, 255, 0.4)),
+    background-image:
+    linear-gradient(45deg, rgba(255, 255, 255, 0.4) 25%, transparent 25%, transparent 75%, rgba(255, 255, 255, 0.4) 75%, rgba(255, 255, 255, 0.4)),
     linear-gradient(45deg, rgba(255, 255, 255, 0.4) 25%, transparent 25%, transparent 75%, rgba(255, 255, 255, 0.4) 75%, rgba(255, 255, 255, 0.4));
     background-size: 20px 20px;
     background-position: 0 0, 10px 10px;
@@ -8,6 +9,21 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+body::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 2300px;
+    height: 700px; /* Увеличиваем высоту на 200px */
+    background-image: url('../IMG/banner8.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% auto; /* Вместо 'contain' используем '100% auto' */
+    z-index: -1;
+    transform: translate(-50%, -80%);
 }
 
 /* content */
@@ -20,11 +36,13 @@ body {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     max-width: 1400px;
     width: 100%;
-    height: 95%;
+    min-height: 95%; /* изменено с height на min-height */
     display: grid;
-    grid-template-rows: 4% 5% 1fr; /* Three rows: one for each upper block and one for the rest */
+    flex-direction: row;
+    grid-template-rows: min-content min-content auto; /* Изменено с 1fr на auto */
     grid-template-columns: 15% 70% 15%; /* Three columns: left, main and right */
 }
+
 
 /* upper-block-first */
 
@@ -177,7 +195,7 @@ nav ul {
     display: block; /* Изменено с flex на block */
     padding-left: 0;
     list-style-type: none;
-    margin-top: 0;
+    margin-top: 19.92px;
 }
 
 nav ul a.navigation {
@@ -233,45 +251,54 @@ nav ul a.navigation {
 /* main-content-block */
 
 .main-content-block {
-    position: relative; /* Add this line */
+    position: relative; /* remove if it does not affect your layout */
     background: linear-gradient(
         to right,
-        #fafafa 0%,
-        #f3f3f3 10%,
-        rgba(255, 200, 200, 0.5) 10%,
+        #ffffff 0%,
+        #f6f6f6 10%,
+        rgba(255, 107, 107, 0.5) 10%,
         rgba(255, 200, 200, 0.5) 20%,
-        #f3f3f3 20%,
-        #f3f3f3 30%,
-        rgba(255, 200, 200, 0.5) 30%,
+        #ffffff 20%,
+        #f6f6f6 30%,
+        rgba(255, 107, 107, 0.5) 30%,
         rgba(255, 200, 200, 0.5) 40%,
-        #f3f3f3 40%,
-        #f3f3f3 50%,
-        rgba(255, 200, 200, 0.5) 50%,
+        #ffffff 40%,
+        #f6f6f6 50%,
+        rgba(255, 107, 107, 0.5) 50%,
         rgba(255, 200, 200, 0.5) 60%,
-        #f3f3f3 60%,
-        #f3f3f3 70%,
-        rgba(255, 200, 200, 0.5) 70%,
+        #ffffff 60%,
+        #f6f6f6 70%,
+        rgba(255, 107, 107, 0.5) 70%,
         rgba(255, 200, 200, 0.5) 80%,
-        #f3f3f3 80%,
-        #f3f3f3 90%,
-        rgba(255, 200, 200, 0.5) 90%,
+        #ffffff 80%,
+        #f6f6f6 90%,
+        rgba(255, 107, 107, 0.5) 90%,
         rgba(255, 200, 200, 0.5) 100%
     );
-    grid-row: 3; /* Specify row */
-    grid-column: 2; /* Specify column */
+    grid-row: 3;
+    grid-column: 2;
 }
+
+.left-side-block,
+.right-side-block,
+.main-content-block {
+    min-height: 0; /* add */
+    overflow: auto; /* add */
+    flex-grow: 1;
+}
+
 
 .main-content {
     position: relative;
     font-family: "Open Sans", serif;
     text-align: left;
     width: calc(100% - 60px); /* Reduce the width by the width of the vertical ruler */
-    height: 100%;
+    /* height: 100%; Удалено */
     padding-left: 40px; /* добавим отступ слева */
     padding-right: 40px; /* добавим отступ справа */
     padding-top: 40px;
+    padding-bottom: 40px; /* Добавлено, если нужно сохранить отступ снизу */
 }
-
 
 .top-block {
     background: #ffffff;
@@ -287,7 +314,6 @@ nav ul a.navigation {
     margin-right: 60px;
     margin-left: 10px;
     border-radius: 5px;
-    /*box-shadow: 3px 0px 13px 5px rgba(0, 0, 0, 0.3);*/
     height: 100%; /* Add this line */
     object-fit: contain; /* Add this line */
 }
@@ -301,6 +327,13 @@ nav ul a.navigation {
     width: 80%; /* Указываем ширину */
 }
 
+.faq-answer {
+  display: none;
+}
+
+.faq-question {
+  cursor: pointer;
+}
 
 /* right-side-block */
 
@@ -309,6 +342,38 @@ nav ul a.navigation {
     grid-row: 3; /* Specify row */
     grid-column: 3; /* Specify column */
     border-left: 1px solid #b4b4b4; /* Add border */
+    padding-left: 20px;
+}
+
+.social-icons {
+    justify-content: space-between; /* распределить элементы равномерно по горизонтали */
+    margin-top: 5px;
+}
+
+.soc-imag {
+    width: 24px;
+    height: 24px;
+}
+
+.social-icons img:not(:last-child) {
+    margin-right: 4px; /* или любое другое значение, которое вы предпочитаете */
+}
+
+contact ul {
+    padding: 0;
+    list-style-type: none;
+}
+
+contact ul li{
+    padding-bottom: 10px;
+
+}
+
+.cont-icon {
+    height: 20px; /* Укажите желаемую высоту */
+    width: 20px; /* Укажите желаемую ширину */
+    vertical-align: middle; /* Выравнивание по центру относительно текста */
+    margin-right: 5px; /* Отступ справа для отделения изображения от текста */
 }
 
 /* Vertical & Horizontal rulers */

@@ -32,3 +32,11 @@ $(document).ready(function() {
         minimumResultsForSearch: Infinity // Эта опция скрывает строку поиска
     });
 });
+
+/* FAQ */
+
+$(".faq-question").click(function() {
+  $(this).next(".faq-answer").slideToggle("slow");
+
+  $(".faq-answer").not($(this).next(".faq-answer")).slideUp("slow");
+});
