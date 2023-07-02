@@ -17,11 +17,11 @@ body::after {
     top: 50%;
     left: 50%;
     width: 2300px;
-    height: 700px; /* Увеличиваем высоту на 200px */
+    height: 700px;
     background-image: url('../IMG/banner8.svg');
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 100% auto; /* Вместо 'contain' используем '100% auto' */
+    background-size: 100% auto;
     z-index: -1;
     transform: translate(-50%, -80%);
 }
@@ -36,10 +36,10 @@ body::after {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     max-width: 1400px;
     width: 100%;
-    min-height: 95vh; /* изменено с height на min-height */
+    min-height: 95vh;
     display: grid;
     flex-direction: row;
-    grid-template-rows: min-content min-content auto; /* Изменено с 1fr на auto */
+    grid-template-rows: min-content min-content auto;
     grid-template-columns: 15% 70% 15%; /* Three columns: left, main and right */
 }
 
@@ -53,20 +53,20 @@ body::after {
 }
 
 .sub-block {
-    background-color: #1e1e1e; /* just for visual representation */
-    border-left: 1px solid #282828; /* just for visual representation */
-    border-right: 1px solid #282828; /* just for visual representation */
+    background-color: #1e1e1e;
+    border-left: 1px solid #282828;
+    border-right: 1px solid #282828;
     font-family: "Open Sans", serif;
     font-size: 12px;
-    display: flex; /* Добавить */
-    justify-content: center; /* Добавить */
+    display: flex;
+    justify-content: center;
     align-items: center;
     color: #646464;
 }
 
 .sub-block-logo {
-    background-color: #1e1e1e; /* just for visual representation */
-    display: flex; /* Добавить */
+    background-color: #1e1e1e;
+    display: flex;
     align-items: center;
     justify-content: center;
     padding-left: 4px;
@@ -79,18 +79,18 @@ body::after {
     height: 100%;
     width: 100%;
     color: inherit; /* Важно: это заставит ссылку использовать цвет текста родительского элемента */
-    text-decoration: none; /* Опционально: это уберет подчеркивание у ссылки */
+    text-decoration: none;
 }
 
 .sub-block a::before {
-    content: ''; /* Задаем пустое содержимое */
+    content: '';
     display: inline-block;
-    width: 15px; /* Задаем ширину */
-    height: 15px; /* Задаем высоту */
-    background-image: url('../IMG/brush_blue.svg'); /* Замените 'image.jpg' на путь к вашему изображению */
+    width: 15px;
+    height: 15px;
+    background-image: url('../IMG/brush_blue.svg');
     background-repeat: no-repeat; /* Изображение не будет повторяться */
     background-size: contain; /* Изображение будет масштабироваться, чтобы поместиться в элемент */
-    margin-right: 5px; /* Отступ справа от изображения до текста */
+    margin-right: 5px;
     margin-left: 10px;
     vertical-align: middle; /* Добавлено выравнивание по вертикали */
     filter: brightness(0.5); /* Затемнение, 0.5 - это половина яркости */
@@ -126,13 +126,13 @@ body::after {
 }
 
 .sub-sec-block {
-    background-color: #323232; /* just for visual representation */
-    border-left: 1px solid #282828; /* just for visual representation */
-    border-right: 1px solid #282828; /* just for visual representation */
+    background-color: #323232;
+    border-left: 1px solid #282828;
+    border-right: 1px solid #282828;
     font-family: "Open Sans", serif;
     font-size: 12px;
-    display: flex; /* Добавить */
-    justify-content: center; /* Добавить */
+    display: flex;
+    justify-content: center;
     align-items: center;
     color: #646464;
 }
@@ -144,7 +144,7 @@ body::after {
     height: 100%;
     width: 100%;
     color: inherit; /* Важно: это заставит ссылку использовать цвет текста родительского элемента */
-    text-decoration: none; /* Опционально: это уберет подчеркивание у ссылки */
+    text-decoration: none;
 }
 
 /* select block */
@@ -185,25 +185,25 @@ body::after {
 
 .left-side-block {
     background: #ffffff;
-    grid-row: 3; /* Specify row */
-    grid-column: 1; /* Specify column */
+    grid-row: 3;
+    grid-column: 1;
 }
 
 /* Navigation */
 
 nav ul {
-    display: block; /* Изменено с flex на block */
+    display: block;
     padding-left: 0;
     list-style-type: none;
-    margin-top: 19.92px;
+    margin-top: 19px;
 }
 
 nav ul a.navigation {
     display: block; /* Добавлено для расширения области клика */
-    margin: 0; /* Убраны отступы */
-    padding: 10px 0 10px 15px; /* Добавлен padding для отступов между элементами списка */
-    text-align: left; /* Выравнивание текста по центру */
-    color: #000; /* Задаем цвет текста */
+    margin: 0;
+    padding: 10px 0 10px 15px;
+    text-align: left;
+    color: #000;
     text-decoration: none; /* Убираем подчеркивание */
 }
 
@@ -211,20 +211,20 @@ nav ul a.navigation {
     font-family: "Open Sans", serif;
     font-size: 14px;
     font-weight: bold;
-    border: 1px solid transparent; /* Add transparent border */
+    border: 1px solid transparent;
 }
 
 .navigation:hover {
     border-top: 1px solid #999999;
     border-bottom: 1px solid #999999;
-    color: #888; /* Moved hover effect to li from a */
+    color: #888;
 }
 
 .nav-icon {
-    height: 20px; /* Укажите желаемую высоту */
-    width: 20px; /* Укажите желаемую ширину */
+    height: 20px;
+    width: 20px;
     vertical-align: middle; /* Выравнивание по центру относительно текста */
-    margin-right: 5px; /* Отступ справа для отделения изображения от текста */
+    margin-right: 5px;
 }
 
 .nav-icon-hover {
@@ -251,7 +251,7 @@ nav ul a.navigation {
 /* main-content-block */
 
 .main-content-block {
-    position: relative; /* remove if it does not affect your layout */
+    position: relative;
     background: linear-gradient(
         to right,
         #ffffff 0%,
@@ -282,7 +282,7 @@ nav ul a.navigation {
 .left-side-block,
 .right-side-block,
 .main-content-block {
-    min-height: 0; /* add */
+    min-height: 0;
     flex-grow: 1;
 }
 
@@ -292,11 +292,7 @@ nav ul a.navigation {
     font-family: "Open Sans", serif;
     text-align: left;
     width: calc(100% - 60px); /* Reduce the width by the width of the vertical ruler */
-    /* height: 100%; Удалено */
-    padding-left: 40px; /* добавим отступ слева */
-    padding-right: 40px; /* добавим отступ справа */
-    padding-top: 40px;
-    padding-bottom: 40px; /* Добавлено, если нужно сохранить отступ снизу */
+    padding: 40px;
 }
 
 .top-block {
@@ -313,8 +309,22 @@ nav ul a.navigation {
     margin-right: 60px;
     margin-left: 10px;
     border-radius: 5px;
-    height: 100%; /* Add this line */
-    object-fit: contain; /* Add this line */
+    height: 100%;
+    object-fit: contain;
+}
+
+.serv-block {
+    background: white;
+    margin-top: 40px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+.faq-block {
+    background: white;
+    margin-top: 40px;
+    padding-bottom: 5px;
+    padding-top: 5px;
 }
 
 .faq-answer {
@@ -329,9 +339,9 @@ nav ul a.navigation {
 
 .right-side-block {
     background: #ffffff;
-    grid-row: 3; /* Specify row */
-    grid-column: 3; /* Specify column */
-    border-left: 1px solid #b4b4b4; /* Add border */
+    grid-row: 3;
+    grid-column: 3;
+    border-left: 1px solid #b4b4b4;
     padding-left: 20px;
 }
 
@@ -346,7 +356,7 @@ nav ul a.navigation {
 }
 
 .social-icons img:not(:last-child) {
-    margin-right: 4px; /* или любое другое значение, которое вы предпочитаете */
+    margin-right: 4px;
 }
 
 contact ul {
@@ -360,10 +370,10 @@ contact ul li{
 }
 
 .cont-icon {
-    height: 20px; /* Укажите желаемую высоту */
-    width: 20px; /* Укажите желаемую ширину */
-    vertical-align: middle; /* Выравнивание по центру относительно текста */
-    margin-right: 5px; /* Отступ справа для отделения изображения от текста */
+    height: 20px;
+    width: 20px;
+    vertical-align: middle;
+    margin-right: 5px;
 }
 
 /* Vertical & Horizontal rulers */
@@ -380,7 +390,7 @@ contact ul li{
     position: absolute; /* Changed from relative to absolute */
     top: 0;
     left: 0;
-    width: 100%; /* Updated width */
+    width: 100%;
     background: rgba(255, 255, 255, 0.5);
     border-radius: 1px;
     height: 20px;
@@ -403,7 +413,7 @@ contact ul li{
     top: 0;
     bottom: 0;
     background: #e5f4ff;
-    border-radius: 5px; /* закругляем углы */
+    border-radius: 5px;
 }
 
 .horizontal-ruler .mark {
@@ -421,7 +431,7 @@ contact ul li{
     white-space: nowrap;
     transform: translateX(-50%); /* центрируем текст по горизонтали */
     font-family: "Open Sans", serif;
-    font-size: 10px; /* уменьшаем размер шрифта */
+    font-size: 10px;
     color: #c7c1c1;
 }
 
@@ -453,7 +463,7 @@ contact ul li{
     left: 0;
     right: 0;
     background: #e5f4ff;
-    border-radius: 5px; /* закругляем углы */
+    border-radius: 5px;
 }
 
 .vertical-ruler .mark {
