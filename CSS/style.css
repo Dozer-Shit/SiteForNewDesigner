@@ -8,7 +8,7 @@ body {
     min-height: 100vh;
     display: flex;
     justify-content: center;
-
+    margin-top: 20px;
 }
 
 body::after {
@@ -319,6 +319,45 @@ nav ul a.navigation {
     padding-bottom: 5px;
     padding-top: 5px;
 }
+
+.price-block{
+    background: white;
+    margin-top: 40px;
+    padding-bottom: 20px;
+    padding-top: 5px;
+}
+
+.price-block-cards {
+    background: white;
+    display: grid;
+    grid-template-rows: repeat(2, min-content);
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 20px; /* Space between the grid items */
+    width: 100%;
+    padding: 20px; /* Space around the grid items */
+    min-height: 50vh;
+    box-sizing: border-box; /* Include padding in the total width and height */
+}
+
+.price-block-cards-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #323232;
+    border: 1px solid #b4b4b4;
+    height: 40px;
+    color: white;
+}
+
+.price-block-cards-bot {
+    background: white;
+    border: 1px solid #b4b4b4;
+    border-top: none;
+    border-radius: 0 0 5px 5px;
+    min-height: 300px;
+    object-fit: contain;
+}
+
 
 .faq-block {
     background: white;
