@@ -189,6 +189,13 @@ body::after {
     grid-column: 1;
 }
 
+.fixed {
+    position: fixed;
+    top: 0;
+    width: 15%;
+    /* Other styles as needed */
+}
+
 /* Navigation */
 
 nav ul {
@@ -383,7 +390,12 @@ nav ul a.navigation {
     border-left: 1px solid #b4b4b4;
     padding-left: 20px;
 }
-
+#right-side-block.fixed {
+    position: fixed;
+    top: 0;
+    width: 15%;
+  /* половина ширины экрана плюс половина ширины left-side-block */
+}
 .social-icons {
     justify-content: space-between; /* распределить элементы равномерно по горизонтали */
     margin-top: 5px;

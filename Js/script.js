@@ -40,3 +40,16 @@ $(".faq-question").click(function() {
 
   $(".faq-answer").not($(this).next(".faq-answer")).slideUp("slow");
 });
+
+$(function() {
+    var navbar = $('.left-side-block');
+    var sticky = navbar.offset().top;
+
+    $(window).scroll(function() {
+        if ($(window).scrollTop() >= sticky) {
+            navbar.addClass('fixed');
+        } else {
+            navbar.removeClass('fixed');
+        }
+    });
+});
